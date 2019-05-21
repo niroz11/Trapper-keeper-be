@@ -8,4 +8,10 @@ app.locals.title = 'Trapper Keeper';
 app.locals.notes = [];
 app.locals.items = [];
 
+app.get('/api/v1/notes', (request, response) => {
+  const notes = app.locals.notes;
+  const items = app.locals.items;
+  return response.status(200).json({ notes, items })
+});
+
 export default app;
