@@ -10,8 +10,7 @@ app.locals.notes = [];
 app.locals.items = [];
 
 app.get('/api/v1/notes', (req, res) => {
-	const notes = app.locals.notes;
-	const items = app.locals.items;
+	const { notes, items } = app.locals;
 	return res.status(200).json({ notes, items });
 });
 
