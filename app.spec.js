@@ -165,6 +165,18 @@ describe ('api', () => {
   	})
   })
 
+  describe ('DELETE /api/v1/lists/:id', () => {
+  	it ('should have a status code of 200 on successful delete', async () => {
+  		const response = await request(app).delete('/api/v1/lists/1558629197562')
+  		expect(response.status).toBe(200);
+  	})
+
+  	it ('should have a status code of 404 if id does not match', async () => {
+  		const response = await request(app).delete('/api/v1/lists/15586dsss7562')
+  		expect(response.status).toBe(404);
+  	})
+  })
+
 
 
 
