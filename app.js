@@ -41,13 +41,13 @@ app.put('/api/v1/lists/:id', (req, res) => {
 	if (!title || !notes) {
 		return res.status(422).send('Expected format: { title: <String>, notes: <StringArray> }');
 	}
-	let listToUpate = app.locals.lists.find(list => list.id === id);
-	if (!listToUpate) {
+	let listToUpdate = app.locals.lists.find(list => list.id === id);
+	if (!listToUpdate) {
 		return res.sendStatus(404);
 	}
-	listToUpate.title = title;
-	listToUpate.notes = notes;
-	res.status(200).send(app.locals.lists);
+	listToUpdate.title = title;
+	listToUpdate.notes = notes;
+	res.sendStatus(204);
 });
 
 app.delete('/api/v1/lists/:id', (req, res) => {
